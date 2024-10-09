@@ -21,6 +21,6 @@ public class ProductService {
         }
 
         public Product getProductDetails(UUID productId){
-            return productRepo.findAllByproductID(productId);
+            return productRepo.findByproductID(productId);
         }
 }
