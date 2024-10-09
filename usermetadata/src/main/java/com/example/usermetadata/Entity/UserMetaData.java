@@ -2,11 +2,12 @@ package com.example.usermetadata.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 @Entity(name = "User")
 
 public class UserMetaData {
-    @id
+    @Id
     @GeneratedValue
     private long id;
 

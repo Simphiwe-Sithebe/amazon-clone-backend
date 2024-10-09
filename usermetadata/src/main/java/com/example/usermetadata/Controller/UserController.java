@@ -5,8 +5,9 @@ import com.example.usermetadata.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
+@RequestMapping("/amazon/users/")
 @RestController
-@RequestMapping("/amazon/user/")
 //when user request this url, traffic is redirected to this controller.
 //Start point
 public class UserController {
