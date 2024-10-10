@@ -1,10 +1,13 @@
-package main.java.com.example.productdetailsservice.Service;
+package com.example.productdetailsservice.Service;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
-import main.java.com.example.productdetailsservice.Entity.Product;
-import main.java.com.example.productdetailsservice.Repo.ProductRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.productdetailsservice.Entity.Product;
+import com.example.productdetailsservice.Repo.ProductRepo;
 
 @Service
 public class ProductService {
@@ -13,7 +16,8 @@ public class ProductService {
         ProductRepo productRepo;
 
         public Product saveDataToDB(Product product){
-            return productRepo.saveDataToDB(product);
+            product.setProductID(UUID.randomUUID());
+            return productRepo.save(product);
         }
 
         public ArrayList<Product> findAllProducts(){

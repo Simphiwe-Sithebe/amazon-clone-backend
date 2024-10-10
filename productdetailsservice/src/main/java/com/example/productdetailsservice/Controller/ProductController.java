@@ -1,8 +1,18 @@
-package main.java.com.example.productdetailsservice.Controller;
+package com.example.productdetailsservice.Controller;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
-import main.java.com.example.productdetailsservice.Service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.productdetailsservice.Entity.Product;
+import com.example.productdetailsservice.Service.ProductService;
 
 @RestController
 @RequestMapping("/amazon/products")
@@ -17,11 +27,11 @@ public class ProductController {
 
     @GetMapping("/getAllProducts")
     public ArrayList<Product> getAllProducts(){
-        return productService.findAll();
+        return productService.findAllProducts();
     }
     
     @GetMapping("/search/{productId}")
     public Product search(@PathVariable UUID productId){
-        return productService.findAllByuniqueId(productId);
+        return productService.getProductDetails(productId);
     }
 }

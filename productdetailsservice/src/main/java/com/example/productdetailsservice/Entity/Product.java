@@ -1,16 +1,18 @@
-package main.java.com.example.productdetailsservice.Entity;
-
+package com.example.productdetailsservice.Entity;
 import java.math.BigInteger;
 import java.util.UUID;
 
-import javax.xml.bind.annotation.XmlID;
+import javax.persistence.GeneratedValue;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 //instead of an entity non rdbm use doc
 @Document
 public class Product {
 
     //Mongo db only supports 3 data types, big int, string and object type
-    @ID
+    @Id
     @GeneratedValue
     public BigInteger id;
 
