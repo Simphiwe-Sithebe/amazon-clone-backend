@@ -11,20 +11,21 @@ import com.example.productdetailsservice.Repo.ProductRepo;
 
 @Service
 public class ProductService {
+	
+	@Autowired
+	ProductRepo productRepo;
 
-        @Autowired
-        ProductRepo productRepo;
-
-        public Product saveDataToDB(Product product){
-            product.setProductID(UUID.randomUUID());
-            return productRepo.save(product);
-        }
-
-        public ArrayList<Product> findAllProducts(){
-            return productRepo.findAll();
-        }
-
-        public Product getProductDetails(UUID productId){
-            return productRepo.findByproductID(productId);
-        }
+	public Product saveDataToDB(Product product) {
+		product.setProductID(UUID.randomUUID());
+		return productRepo.save(product);
+	}
+	
+	public ArrayList<Product> findAllProducts() {
+		return productRepo.findAll();
+	}
+	
+	public Product getProductDetails(UUID productId) {
+		return productRepo.findByproductID(productId);
+	}
+	
 }
